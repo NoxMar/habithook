@@ -1,5 +1,3 @@
-using HabitHook.HabitManagement.Domain.Contracts.Habits.AddHabit;
-
 namespace HabitHook.HabitManagement.Domain.Test.Unit.Habits;
 
 using Fakers;

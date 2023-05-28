@@ -1,8 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using HabitHook.Domain.Common;
-using HabitHook.HabitManagement.Domain.Habits.AddHabit;
+using HabitHook.HabitManagement.Domain.Contracts.Habits.AddHabit;
+using HabitHook.HabitManagement.Domain.Core.Habits.AddHabit;
 
-namespace HabitHook.HabitManagement.Domain.Habits;
+namespace HabitHook.HabitManagement.Domain.Core.Habits;
 
 public class Habit : BaseEntity
 {

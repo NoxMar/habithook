@@ -1,8 +1,8 @@
 using Mapster;
 
-using HabitHook.HabitManagement.Domain.Habits.AddHabit;
+using HabitHook.HabitManagement.Domain.Core.Habits.AddHabit;
 
-namespace HabitHook.HabitManagement.Domain.Habits;
+namespace HabitHook.HabitManagement.Domain.Core.Habits;
 
 public sealed class HabitMappings : IRegister
 {

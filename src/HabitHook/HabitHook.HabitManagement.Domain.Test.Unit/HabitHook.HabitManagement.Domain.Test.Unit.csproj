@@ -33,7 +33,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\HabitHook.HabitManagement.Domain\HabitHook.HabitManagement.Domain.csproj" />
+      <ProjectReference Include="..\HabitHook.HabitManagement.Domain.Core\HabitHook.HabitManagement.Domain.Core.csproj" />
     </ItemGroup>
 
 </Project>

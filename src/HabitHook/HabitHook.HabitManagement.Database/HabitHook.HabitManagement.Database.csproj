@@ -30,7 +30,7 @@
     <ItemGroup>
       <ProjectReference Include="..\HabitHook.Common\HabitHook.Common.csproj" />
       <ProjectReference Include="..\HabitHook.Domain.Common\HabitHook.Domain.Common.csproj" />
-      <ProjectReference Include="..\HabitHook.HabitManagement.Domain\HabitHook.HabitManagement.Domain.csproj" />
+      <ProjectReference Include="..\HabitHook.HabitManagement.Domain.Core\HabitHook.HabitManagement.Domain.Core.csproj" />
     </ItemGroup>
 
 </Project>

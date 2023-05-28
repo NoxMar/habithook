@@ -20,11 +20,11 @@ public class HabitsController : ControllerBase
         AddHabitCommand command = new (habitForCreation);
         var response = await _mediator.Send(command);
         return CreatedAtRoute(nameof(GetHabit),
-            new { id = response.Id },
+            new { response.Id },
             response);
     }
     
-    [HttpGet("{id:guid}")]
+    [HttpGet("{id:guid}", Name = nameof(GetHabit))]
     public Task<ActionResult<HabitDto>> GetHabit( Guid id)
     {
         var result = Ok(new HabitDto { Id = id });

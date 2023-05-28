@@ -1,3 +1,5 @@
+using HabitHook.HabitManagement.Domain.AddHabit;
+
 namespace HabitHook.Config;
 
 public static class MediatRConfig
@@ -6,7 +8,10 @@ public static class MediatRConfig
     {
         serviceCollection.AddMediatR(cfg =>
         {
-            cfg.RegisterServicesFromAssemblyContaining<Habit>();
+            cfg.RegisterServicesFromAssemblies(
+                typeof(Habit).Assembly,
+                typeof(AddHabitCommand).Assembly,
+                typeof(AddHabitCommandHandler).Assembly);
         });
     }
 }

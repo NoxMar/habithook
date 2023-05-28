@@ -1,9 +1,12 @@
 using System.Linq.Expressions;
 using HabitHook.Common.Services;
 using HabitHook.Domain.Common;
-using Mediator;
+using HabitHook.HabitManagement.Database.EntityConfiguration;
+using HabitHook.HabitManagement.Domain.Core.Habits;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
+using Serilog;
 
 namespace HabitHook.HabitManagement.Database;
 
@@ -12,7 +15,9 @@ public class HabitContext : DbContext
     private readonly IMediator _mediator;
     private readonly IDateTimeProvider _dateTimeProvider;
     private readonly ICurrentUserService _currentUserService;
-    
+
+    public DbSet<Habit> Habits { get; set; } = default!;
+
     public HabitContext(DbContextOptions<HabitContext> options, IMediator mediator, IDateTimeProvider dateTimeProvider, ICurrentUserService currentUserService) : base(options)
     {
         _mediator = mediator;
@@ -23,8 +28,10 @@ public class HabitContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        modelBuilder.FilterSoftDeletedRecords();
         
+        // Apply configuration
+        modelBuilder.ApplyConfiguration(new BaseEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new HabitConfiguration());
     }
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
@@ -73,25 +80,6 @@ public class HabitContext : DbContext
                     entry.Entity.UpdateIsDeleted(true);
                     break;
             }
-        }
-    }
-}
-
-public static class Extensions
-{
-    public static void FilterSoftDeletedRecords(this ModelBuilder modelBuilder)
-    {
-        Expression<Func<BaseEntity, bool>> notDeletedFilter = e => !e.IsDeleted;
-        foreach (var entityType in modelBuilder.Model.GetEntityTypes()
-                     .Where(e => e.ClrType.IsAssignableTo(typeof(BaseEntity))))
-        {
-            var parameter = Expression.Parameter(entityType.ClrType);
-            var body = ReplacingExpressionVisitor
-                .Replace(notDeletedFilter.Parameters.First(), parameter, notDeletedFilter.Body);
-            var lambdaExpression = Expression.Lambda(body, parameter);
-
-            // set filter
-            entityType.SetQueryFilter(lambdaExpression);
         }
     }
 }

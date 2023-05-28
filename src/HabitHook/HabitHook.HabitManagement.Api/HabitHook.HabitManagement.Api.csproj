@@ -24,6 +24,8 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\HabitHook.HabitManagement.Database\HabitHook.HabitManagement.Database.csproj" />
+      <ProjectReference Include="..\HabitHook.HabitManagement.Domain.Core\HabitHook.HabitManagement.Domain.Core.csproj" />
       <ProjectReference Include="..\HabitHook.HabitManagement.Domain\HabitHook.HabitManagement.Domain.csproj" />
     </ItemGroup>
 

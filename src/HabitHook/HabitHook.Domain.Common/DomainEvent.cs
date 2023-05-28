@@ -1,5 +1,5 @@
 using System.Reflection;
-using Mediator;
+using MediatR;
 
 namespace HabitHook.Domain.Common;
 

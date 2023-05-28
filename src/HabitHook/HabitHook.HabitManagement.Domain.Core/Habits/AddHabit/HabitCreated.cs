@@ -1,6 +1,6 @@
 using HabitHook.Domain.Common;
 
-namespace HabitHook.HabitManagement.Domain.Habits.AddHabit;
+namespace HabitHook.HabitManagement.Domain.Core.Habits.AddHabit;
 
 public class HabitCreated : DomainEvent
 {
