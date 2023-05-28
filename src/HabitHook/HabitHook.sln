@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitHook.Domain.Common", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitHook.HabitManagement.Domain.Contracts", "HabitHook.HabitManagement.Domain.Contracts\HabitHook.HabitManagement.Domain.Contracts.csproj", "{DDF3A489-3FB0-4079-92EE-3AED13882BC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitHook.Common", "HabitHook.Common\HabitHook.Common.csproj", "{865B811F-945E-43E8-80C7-A07AFA78D311}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{DDF3A489-3FB0-4079-92EE-3AED13882BC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDF3A489-3FB0-4079-92EE-3AED13882BC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDF3A489-3FB0-4079-92EE-3AED13882BC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{865B811F-945E-43E8-80C7-A07AFA78D311}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{865B811F-945E-43E8-80C7-A07AFA78D311}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{865B811F-945E-43E8-80C7-A07AFA78D311}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{865B811F-945E-43E8-80C7-A07AFA78D311}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
