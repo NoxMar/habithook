@@ -6,22 +6,25 @@
 
 <div class="container">
     
-    <EditForm Model="@habit" class="row" OnValidSubmit="HandleSubmit">
+    <EditForm Model="@Habit" class="row" OnValidSubmit="HandleSubmit">
         <DataAnnotationsValidator/>
         <ValidationSummary/>
         <div class="form-group col-10 text-start">
-            <InputText id="name" placeholder="Wprowadź nazwę" class="form-control" @bind-Value="habit.Name"/>
-            <ValidationMessage For="@(() => habit.Name)"/>
+            <InputText id="name" placeholder="Wprowadź nazwę" class="form-control" @bind-Value="Habit.Name"/>
+            <ValidationMessage For="@(() => Habit.Name)"/>
         </div>
         <div class="col-1 text-end">
-            <button type="submit" class="btn btn-success">➕</button>
+            <button type="submit" class="btn btn-success"><i class="bi bi-plus-lg text-light"></i></button>
         </div>
     </EditForm>
 </div>
 
 @code
 {
-    private HabitForCreationDto habit { get; set; } = new();
+    [Parameter]
+    public EventCallback<HabitDto> OnHabitCreatedAsync { get; set; }
+    
+    private HabitForCreationDto Habit { get; set; } = new();
 
     private async Task HandleSubmit(EditContext editContext)
     {
@@ -32,9 +35,13 @@
 
         try
         {
-            var response = await Mediator.Send(new AddHabitCommand(habit));
+            var response = await Mediator.Send(new AddHabitCommand(Habit));
+            await OnHabitCreatedAsync.InvokeAsync(response);
+            Habit = new HabitForCreationDto();
         }
-        catch (Exception e)
+#pragma warning disable CS0168
+        catch (Exception ignored)
+#pragma warning restore CS0168
         {
             // ignored
         }

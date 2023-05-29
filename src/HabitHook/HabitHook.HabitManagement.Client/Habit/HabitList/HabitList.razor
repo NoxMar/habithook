@@ -27,15 +27,20 @@
   }
   </tbody>
 </table>
-<AddHabitRow />
+<AddHabitRow OnHabitCreatedAsync="LoadHabits"/>
 
 @code
 {
   private List<HabitDto>? _habits;
-  
-  protected override async Task OnInitializedAsync()
+
+  private async Task LoadHabits()
   {
     var response = await Mediator.Send(new ListHabitsQuery(new ListHabitsQueryDto()));
     _habits = response.ToList();
+  }
+  
+  protected override async Task OnInitializedAsync()
+  {
+    await LoadHabits();
   }
 }

@@ -1,5 +1,4 @@
 using System.Net.Http.Json;
-using System.Net.Http.Json;
 using System.Runtime.Serialization;
 using HabitHook.HabitManagement.Domain.Contracts.Habits;
 using HabitHook.HabitManagement.Domain.Contracts.Habits.AddHabit;
