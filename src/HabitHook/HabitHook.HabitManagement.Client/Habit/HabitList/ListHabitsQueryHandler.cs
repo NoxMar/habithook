@@ -19,7 +19,6 @@ public class ListHabitsQueryHandler : IRequestHandler<ListHabitsQuery, IEnumerab
     public async Task<IEnumerable<HabitDto>> Handle(ListHabitsQuery request, CancellationToken cancellationToken)
     {
         var client = _httpClientFactory.CreateClient("ApiClient");
-        var test = await client.GetAsync(Path, cancellationToken);
         var response = await client.GetFromJsonAsync<List<HabitDto>>(Path, cancellationToken);
         if (response is null)
         {

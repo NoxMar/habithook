@@ -1,3 +1,4 @@
+@using HabitHook.HabitManagement.Client.Habit.AddHabit;
 @using HabitHook.HabitManagement.Domain.Contracts.Habits.ListHabits
 @inject IMediator Mediator
 
@@ -7,6 +8,7 @@
   <thead>
   <tr>
     <th scope="col">Nazwa nawyku</th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
@@ -19,11 +21,13 @@
           <NavLink class="link-dark" 
                    href=@($"/habit/{habit.Id}")>@habit.Name</NavLink>
         </td>
+        <td></td>
       </tr>
     }
   }
   </tbody>
 </table>
+<AddHabitRow />
 
 @code
 {

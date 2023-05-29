@@ -1,0 +1,42 @@
+@namespace HabitHook.HabitManagement.Client.Habit.AddHabit
+
+@using HabitHook.HabitManagement.Domain.Contracts.Habits.AddHabit
+
+@inject IMediator Mediator
+
+<div class="container">
+    
+    <EditForm Model="@habit" class="row" OnValidSubmit="HandleSubmit">
+        <DataAnnotationsValidator/>
+        <ValidationSummary/>
+        <div class="form-group col-10 text-start">
+            <InputText id="name" placeholder="Wprowadź nazwę" class="form-control" @bind-Value="habit.Name"/>
+            <ValidationMessage For="@(() => habit.Name)"/>
+        </div>
+        <div class="col-1 text-end">
+            <button type="submit" class="btn btn-success">➕</button>
+        </div>
+    </EditForm>
+</div>
+
+@code
+{
+    private HabitForCreationDto habit { get; set; } = new();
+
+    private async Task HandleSubmit(EditContext editContext)
+    {
+        if (!editContext.Validate())
+        {
+            return;
+        }
+
+        try
+        {
+            var response = await Mediator.Send(new AddHabitCommand(habit));
+        }
+        catch (Exception e)
+        {
+            // ignored
+        }
+    }
+}
