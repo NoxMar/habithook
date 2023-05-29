@@ -1,7 +1,7 @@
 @using HabitHook.HabitManagement.Domain.Contracts.Habits.ListHabits
 @inject IMediator Mediator
 
-<PageTitle>List nawyków</PageTitle>
+<PageTitle>Lista nawyków</PageTitle>
 
 <table class="table">
   <thead>
@@ -15,7 +15,10 @@
     @foreach (var habit in _habits)
     {
       <tr>
-        <td>@habit.Name</td>
+        <td>
+          <NavLink class="link-dark" 
+                   href=@($"/habit/{habit.Id}")>@habit.Name</NavLink>
+        </td>
       </tr>
     }
   }
