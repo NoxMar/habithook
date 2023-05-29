@@ -1,3 +1,4 @@
+using HabitHook.HabitManagement.Domain.Contracts.Habits.ListHabits;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,7 +24,14 @@ public class HabitsController : ControllerBase
             new { response.Id },
             response);
     }
-    
+
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<HabitDto>>> GetAllHabits()
+    {
+        var response = await _mediator.Send(new ListHabitsQuery(new ListHabitsQueryDto()));
+        return Ok(response);
+    }
+
     [HttpGet("{id:guid}", Name = nameof(GetHabit))]
     public Task<ActionResult<HabitDto>> GetHabit( Guid id)
     {
