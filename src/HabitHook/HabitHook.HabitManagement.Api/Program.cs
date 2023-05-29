@@ -37,6 +37,16 @@ try
             cfg.UseInMemoryDatabase("DevDb"));
     }
     
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("AllowAnyOrigin", builder =>
+        {
+            builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+    });
+    
     builder.Services.AddHealthChecks();
     
     
@@ -57,6 +67,8 @@ try
     app.UseHttpsRedirection();
 
     app.UseSerilogRequestLogging();
+
+    app.UseCors("AllowAnyOrigin");
 
     app.UseAuthorization();
 
