@@ -1,5 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# 
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitHook.HabitManagement.Api", "HabitHook.HabitManagement.Api\HabitHook.HabitManagement.Api.csproj", "{AE41C7FD-C405-4E3D-AE71-5B26BF3A55CD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitHook.HabitManagement.Domain.Test.Unit", "HabitHook.HabitManagement.Domain.Test.Unit\HabitHook.HabitManagement.Domain.Test.Unit.csproj", "{8F9A8FFA-A6DF-4398-A4C2-10414BC17791}"
@@ -17,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitHook.Common", "HabitHook.Common\HabitHook.Common.csproj", "{865B811F-945E-43E8-80C7-A07AFA78D311}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitHook.HabitManagement.Domain", "HabitHook.HabitManagement.Domain\HabitHook.HabitManagement.Domain.csproj", "{18F1182A-7725-43B6-A542-CFC0CA8D6A8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitHook.HabitManagement.Client", "HabitHook.HabitManagement.Client\HabitHook.HabitManagement.Client.csproj", "{710CB3B1-F781-4FF8-A3EE-222155539B07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,5 +63,9 @@ Global
 		{18F1182A-7725-43B6-A542-CFC0CA8D6A8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18F1182A-7725-43B6-A542-CFC0CA8D6A8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18F1182A-7725-43B6-A542-CFC0CA8D6A8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{710CB3B1-F781-4FF8-A3EE-222155539B07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{710CB3B1-F781-4FF8-A3EE-222155539B07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{710CB3B1-F781-4FF8-A3EE-222155539B07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{710CB3B1-F781-4FF8-A3EE-222155539B07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
