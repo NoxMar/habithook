@@ -1,5 +1,35 @@
 @page "/habit-list"
-@inject IHttpClientFactory HttpClientFactory
+@using HabitHook.HabitManagement.Domain.Contracts.Habits.ListHabits
+@inject IMediator Mediator
+
 <PageTitle>List nawyków</PageTitle>
 
-Witaj w liście nawyków, użyty adres bazowy API to: @HttpClientFactory.CreateClient("ApiClient").BaseAddress
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Nazwa nawyku</th>
+  </tr>
+  </thead>
+  <tbody>
+  @if (_habits is not null)
+  {
+    @foreach (var habit in _habits)
+    {
+      <tr>
+        <td>@habit.Name</td>
+      </tr>
+    }
+  }
+  </tbody>
+</table>
+
+@code
+{
+  private List<HabitDto>? _habits;
+  
+  protected override async Task OnInitializedAsync()
+  {
+    var response = await Mediator.Send(new ListHabitsQuery(new ListHabitsQueryDto()));
+    _habits = response.ToList();
+  }
+}
