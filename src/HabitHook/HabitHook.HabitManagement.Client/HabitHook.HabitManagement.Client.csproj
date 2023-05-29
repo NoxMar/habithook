@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\HabitHook.HabitManagement.Domain.Contracts\HabitHook.HabitManagement.Domain.Contracts.csproj" />
   </ItemGroup>
 
