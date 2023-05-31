@@ -38,4 +38,8 @@ public class HabitsController : ControllerBase
         var result = Ok(new HabitDto { Id = id });
         return Task.FromResult<ActionResult<HabitDto>>(result);
     }
+
+    [HttpDelete("{id:guid}", Name = nameof(DeleteHabit))]
+    public async Task<IActionResult> DeleteHabit(Guid id) 
+        => await _mediator.Send(new DeleteHabitCommand(id)) ? Ok() : NotFound();
 }
