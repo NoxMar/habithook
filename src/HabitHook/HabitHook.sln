@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# 
+#
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitHook.HabitManagement.Api", "HabitHook.HabitManagement.Api\HabitHook.HabitManagement.Api.csproj", "{AE41C7FD-C405-4E3D-AE71-5B26BF3A55CD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitHook.HabitManagement.Domain.Test.Unit", "HabitHook.HabitManagement.Domain.Test.Unit\HabitHook.HabitManagement.Domain.Test.Unit.csproj", "{8F9A8FFA-A6DF-4398-A4C2-10414BC17791}"
@@ -8,8 +8,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitHook.HabitManagement.Domain.Core", "HabitHook.HabitManagement.Domain.Core\HabitHook.HabitManagement.Domain.Core.csproj", "{7F15925E-4C33-479E-8669-86C963A9A317}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitHook.HabitManagement.Database", "HabitHook.HabitManagement.Database\HabitHook.HabitManagement.Database.csproj", "{8B5C7EB3-9E06-4655-A3CD-C07726156B1A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitHook.HabitManagement.Database.Abstractions", "HabitHook.HabitManagement.Database.Abstractions\HabitHook.HabitManagement.Database.Abstractions.csproj", "{00D31F8A-8C55-484F-AFE6-CB695BB8547B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HabitHook.Domain.Common", "HabitHook.Domain.Common\HabitHook.Domain.Common.csproj", "{96337DD2-9A75-46D9-9FFB-EA8D3C96CE1B}"
 EndProject
@@ -43,10 +41,6 @@ Global
 		{8B5C7EB3-9E06-4655-A3CD-C07726156B1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B5C7EB3-9E06-4655-A3CD-C07726156B1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B5C7EB3-9E06-4655-A3CD-C07726156B1A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{00D31F8A-8C55-484F-AFE6-CB695BB8547B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{00D31F8A-8C55-484F-AFE6-CB695BB8547B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{00D31F8A-8C55-484F-AFE6-CB695BB8547B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{00D31F8A-8C55-484F-AFE6-CB695BB8547B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{96337DD2-9A75-46D9-9FFB-EA8D3C96CE1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{96337DD2-9A75-46D9-9FFB-EA8D3C96CE1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96337DD2-9A75-46D9-9FFB-EA8D3C96CE1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
