@@ -1,0 +1,24 @@
+@using System.ComponentModel.DataAnnotations
+
+@inject IMediator Mediator;
+
+<Button Color="ButtonColor.Danger" @onclick="Delete">
+    <i class="bi bi-trash-fill"></i>
+</Button>
+@code {
+    [Parameter, EditorRequired]
+    public HabitDto? Habit { get; set; }
+    
+    [Parameter]
+    public EventCallback<HabitDto> OnHabitDeletedAsync { get; set; }
+
+    private async void Delete()
+    {
+        if (Habit is null) return;
+        var wasDeleted = await Mediator.Send(new DeleteHabitCommand(Habit.Id));
+        if (wasDeleted)
+        {
+            await OnHabitDeletedAsync.InvokeAsync(Habit);
+        }
+    }
+}

@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using HabitHook.Domain.Common;
 using HabitHook.HabitManagement.Domain.Contracts.Habits.AddHabit;
 using HabitHook.HabitManagement.Domain.Core.Habits.AddHabit;
+using HabitHook.HabitManagement.Domain.Core.Habits.DeleteHabit;
 
 namespace HabitHook.HabitManagement.Domain.Core.Habits;
 
@@ -19,5 +20,10 @@ public class Habit : BaseEntity
         
         newHabit.QueueDomainEvent(new HabitCreated(newHabit));
         return newHabit;
+    }
+
+    public void Delete()
+    {
+        QueueDomainEvent(new HabitDeleted(this));
     }
 }

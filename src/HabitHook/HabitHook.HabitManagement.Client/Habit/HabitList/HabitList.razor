@@ -1,5 +1,6 @@
 @using HabitHook.HabitManagement.Client.Habit.AddHabit;
 @using HabitHook.HabitManagement.Domain.Contracts.Habits.ListHabits
+@using HabitHook.HabitManagement.Client.Habit.DeleteHabit
 @inject IMediator Mediator
 
 <PageTitle>Lista nawyków</PageTitle>
@@ -21,7 +22,7 @@
           <NavLink class="link-dark" 
                    href=@($"/habit/{habit.Id}")>@habit.Name</NavLink>
         </td>
-        <td></td>
+        <td><DeleteHabitButton Habit="habit" OnHabitDeletedAsync="DeleteLocalCopy"/></td>
       </tr>
     }
   }
@@ -42,5 +43,14 @@
   protected override async Task OnInitializedAsync()
   {
     await LoadHabits();
+  }
+
+  private void DeleteLocalCopy(HabitDto habit)
+  {
+    if (_habits is null)
+    {
+      return;
+    }
+    _habits.RemoveAt(_habits.FindIndex(h => h.Id == habit.Id));
   }
 }
