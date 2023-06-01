@@ -20,7 +20,7 @@ public class HabitTest
         habit.TargetValue.Should().Be(forCreation.TargetValue);
     }
 
-    [Fact(Skip = "Not implemented yet, TDD")]
+    [Fact]
     public void Delete__ShouldCreateHabitDeletedDomainEventAsLastEvent()
     {
         // Arrange
@@ -35,7 +35,7 @@ public class HabitTest
         lastEvent.Should().BeOfType<HabitDeleted>();
     }
     
-    [Fact(Skip = "Not implemented yet, TDD")]
+    [Fact]
     public void Delete__ShouldCreateHabitDeletedDomainEventWithCorrectHabit()
     {
         // Arrange
