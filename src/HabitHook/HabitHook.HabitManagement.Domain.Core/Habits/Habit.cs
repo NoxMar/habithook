@@ -24,5 +24,6 @@ public class Habit : BaseEntity
 
     public void Delete()
     {
+        QueueDomainEvent(new HabitDeleted(this));
     }
 }
