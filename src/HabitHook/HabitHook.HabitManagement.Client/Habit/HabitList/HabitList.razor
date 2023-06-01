@@ -1,5 +1,6 @@
 @using HabitHook.HabitManagement.Client.Habit.AddHabit;
 @using HabitHook.HabitManagement.Domain.Contracts.Habits.ListHabits
+@using HabitHook.HabitManagement.Client.Habit.DeleteHabit
 @inject IMediator Mediator
 
 <PageTitle>Lista nawyków</PageTitle>
@@ -21,7 +22,7 @@
           <NavLink class="link-dark" 
                    href=@($"/habit/{habit.Id}")>@habit.Name</NavLink>
         </td>
-        <td></td>
+        <td><DeleteHabitButton Habit="habit"/></td>
       </tr>
     }
   }
