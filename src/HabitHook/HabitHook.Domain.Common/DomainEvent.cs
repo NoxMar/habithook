@@ -10,10 +10,7 @@ public class DomainEvent : INotification, IEquatable<DomainEvent>
 
     public bool Equals(DomainEvent? other)
     {
-        return Properties
-                   .All(p => Equals(p.GetValue(this, null), p.GetValue(other, null)))
-               && Fields
-                   .All(f => Equals(f.GetValue(this), f.GetValue(other)));
+        return Equals(other as object);
     }
 
     public override bool Equals(object? obj)
@@ -21,7 +18,10 @@ public class DomainEvent : INotification, IEquatable<DomainEvent>
         if (ReferenceEquals(null, obj)) return false;
         if (ReferenceEquals(this, obj)) return true;
         if (obj.GetType() != this.GetType()) return false;
-        return Equals(obj as DomainEvent);
+        return Properties
+                   .All(p => Equals(p.GetValue(this, null), p.GetValue(obj, null)))
+               && Fields
+                   .All(f => Equals(f.GetValue(this), f.GetValue(obj)));
     }
 
     private IEnumerable<PropertyInfo> Properties => _properties ??= GetType()
